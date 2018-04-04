@@ -7,7 +7,8 @@ import LastNameScreen from './screens/lastname.screen';
 import GenderScreen from './screens/gender.screen';
 import PhoneNumberScreen from './screens/phoneNumber.screen';
 import MapScreen from './screens/map.screen';
-import TestScreen from './screens/test.screen'
+import HomeScreen from './screens/home.screen';
+import TestScreen from './screens/test.screen';
 
 const Splash={
   screen: SplashScreen,

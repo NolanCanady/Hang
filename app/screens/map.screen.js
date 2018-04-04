@@ -54,6 +54,30 @@ export default class MapScreen extends Component{
     })
   }
 
+   componentDidMount(){
+     this.watchID = navigator.geolocation.watchPosition((position)=>{
+       let region = {
+         latitude: position.coords.latitude,
+         longitude: position.coords.longitude,
+         latitudeDelta: 0.03,
+         longitudeDelta: 0.03,
+       }
+       this.onRegionChange(region,region.latitude,region.longitude);
+     });
+   }
+
+   componentWillUnmount(){
+     navigator.geolocation.clearWatch(this.watchID);
+   }
+
+   onRegionChange(region, lastLat, lastLong){
+     this.setState({
+       mapRegion: region,
+       lastLat: lastLat || this.state.lastLat,
+       lastLong: lastLong || this.state.lastLong
+     })
+   }
+
   render(){
     const{stores, navigation, age, firstName} = this.props
     return(
@@ -64,8 +88,16 @@ export default class MapScreen extends Component{
           showsUserLocation={true}
           followUserLocation={true}
           onRegionChange={this.onRegionChange.bind(this)}>
-
         </MapView>
+        <View style={styles.container}>
+         <MapView
+           style={styles.map}
+           region={this.state.mapRegion}
+           showsUserLocation={true}
+           followUserLocation={true}
+           onRegionChange={this.onRegionChange.bind(this)}>
+         </MapView>
+        </View>
       </View>
     )
   }
