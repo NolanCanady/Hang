@@ -2,4 +2,6 @@ platform :ios, '8.0'
 target 'Hang' do
 pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga/Yoga.podspec'
 pod 'GoogleMaps'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
 end

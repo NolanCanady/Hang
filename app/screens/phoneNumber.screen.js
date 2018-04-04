@@ -1,9 +1,19 @@
 import React, {Component} from 'react';
 import {Container, Content, Text, Button, Form, Input, Item, Icon} from 'native-base';
-import {View, Image, ImageBackground, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import {AppRegistry, View, Image, ImageBackground, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
 import {inject} from 'mobx-react';
 import buttonStyles from '../styles/button.styles';
 //import BackNav from '../components/hangbutton.component';
+
+const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+});
 
 @inject("stores")
 export default class PhoneNumberScreen extends Component{
@@ -13,11 +23,50 @@ export default class PhoneNumberScreen extends Component{
       editedText: true
     }
   }
+  state={
+    mapRegion: null,
+    lastLat: null,
+    lastLong: null,
+  }
+
+  componentDidMount(){
+    this.watchID = navigator.geolocation.watchPosition((position)=>{
+      let region = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        latitudeDelta: 0.03,
+        longitudeDelta: 0.03,
+      }
+      this.onRegionChange(region,region.latitude,region.longitude);
+    });
+  }
+
+  componentWillUnmount(){
+    navigator.geolocation.clearWatch(this.watchID);
+  }
+
+  onRegionChange(region, lastLat, lastLong){
+    this.setState({
+      mapRegion: region,
+      lastLat: lastLat || this.state.lastLat,
+      lastLong: lastLong || this.state.lastLong
+    })
+  }
+
   render(){
     const{stores, navigation, age} = this.props
     return(
-      <ImageBackground style={{flex:1, width: null, height:null}} source={stores.config.MapBG}>
-      <Container>
+      <View style={{flex: 1}}>
+        <MapView
+          style={styles.map}
+          region={this.state.mapRegion}
+          showsUserLocation={true}
+          followUserLocation={true}
+          onRegionChange={this.onRegionChange.bind(this)}>
+
+        </MapView>
+        <Container style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
+
 
         //Back button
         <Form style={{marginTop:27}}>
@@ -40,11 +89,7 @@ export default class PhoneNumberScreen extends Component{
               </Button>
           </KeyboardAvoidingView>
       </Container>
-      </ImageBackground>
+      </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-
-})

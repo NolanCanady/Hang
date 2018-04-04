@@ -35,8 +35,8 @@ export default class MapScreen extends Component{
       let region = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
-        latitudeDelta: 0.5,
-        longitudeDelta: 0.5,
+        latitudeDelta: 0.03,
+        longitudeDelta: 0.03,
       }
       this.onRegionChange(region,region.latitude,region.longitude);
     });

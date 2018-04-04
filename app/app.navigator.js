@@ -7,7 +7,7 @@ import LastNameScreen from './screens/lastname.screen';
 import GenderScreen from './screens/gender.screen';
 import PhoneNumberScreen from './screens/phoneNumber.screen';
 import MapScreen from './screens/map.screen';
-
+import TestScreen from './screens/test.screen'
 
 const Splash={
   screen: SplashScreen,
@@ -58,6 +58,12 @@ const MapTest={
   }
 }
 
+const TestTest={
+  screen:TestScreen,
+  navigationOptions:{
+    header:null
+  }
+}
 
 const RouteConfig = {
   initialRoute: 'Splash'
@@ -69,7 +75,8 @@ const SignupStack = StackNavigator({
   LastName: LastName,
   Gender: Gender,
   PhoneNumber: PhoneNumber,
-  MapTest: MapTest
+  MapTest: MapTest,
+  TestTest: TestTest
 },{})
 
 const AppNavigator = DrawerNavigator({

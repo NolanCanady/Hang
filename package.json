@@ -7,10 +7,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@shoutem/ui": "^0.23.4",
     "firebase": "^4.12.1",
     "lodash": "^4.17.5",
     "mobx": "^3.6.1",
     "mobx-react": "^4.4.2",
+    "moment": "^2.22.0",
     "native-base": "^2.3.9",
     "react": "^16.3.0-alpha.1",
     "react-native": "^0.54.3",
@@ -18,7 +20,10 @@
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
     "react-native-maps": "^0.20.1",
     "react-native-vector-icons": "^4.5.0",
-    "react-navigation": "^1.4.0"
+    "react-navigation": "^1.4.0",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-jest": "22.4.1",
