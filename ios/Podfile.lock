@@ -4,7 +4,7 @@ PODS:
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
-  - yoga (0.54.0.React)
+  - yoga (0.54.3.React)
 
 DEPENDENCIES:
   - GoogleMaps

@@ -8,6 +8,7 @@ import GenderScreen from './screens/gender.screen';
 import PhoneNumberScreen from './screens/phoneNumber.screen';
 import MapScreen from './screens/map.screen';
 
+
 const Splash={
   screen: SplashScreen,
   navigationOptions: {
@@ -56,6 +57,7 @@ const MapTest={
     header:null
   }
 }
+
 
 const RouteConfig = {
   initialRoute: 'Splash'

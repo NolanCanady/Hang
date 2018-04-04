@@ -3,7 +3,7 @@ import {Container, Content, Text, Button, Form, Input, Item, Icon} from 'native-
 import {View, Image, ImageBackground, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
 import {inject} from 'mobx-react';
 import buttonStyles from '../styles/button.styles';
-import BackNav from '../components/hangbutton.component';
+//import BackNav from '../components/hangbutton.component';
 
 @inject("stores")
 export default class PhoneNumberScreen extends Component{

@@ -63,5 +63,12 @@ export default StyleSheet.create({
     lineHeight: 34,
     letterSpacing :.5,
     textAlign: "center"
+  },
+  mapStyle:{
+    position:'absolute',
+    top:0,
+    left:0,
+    right:0,
+    bottom:0
   }
 })
