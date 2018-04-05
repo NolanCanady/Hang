@@ -59,6 +59,13 @@ const MapTest={
   }
 }
 
+const HomeTest={
+  screen: HomeScreen,
+  navigationOptions:{
+    header:null
+  }
+}
+
 const TestTest={
   screen:TestScreen,
   navigationOptions:{
@@ -77,11 +84,13 @@ const SignupStack = StackNavigator({
   Gender: Gender,
   PhoneNumber: PhoneNumber,
   MapTest: MapTest,
+  HomeScreen: HomeTest,
   TestTest: TestTest
 },{})
 
 const AppNavigator = DrawerNavigator({
   Splash: Splash,
+  Home: HomeTest,
   SignUp: {screen: SignupStack}
 }, RouteConfig)
 
