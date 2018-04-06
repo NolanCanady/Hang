@@ -4176,7 +4176,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -4372,6 +4372,12 @@ react-native-scroller@0.0.6:
   resolved "https://codeload.github.com/react-navigation/react-native-tab-view/tar.gz/36ebd834d78b841fc19778c966465d02fd1213bb"
   dependencies:
     prop-types "^15.6.0"
+
+react-native-tableview-simple@^0.17.3:
+  version "0.17.3"
+  resolved "https://registry.yarnpkg.com/react-native-tableview-simple/-/react-native-tableview-simple-0.17.3.tgz#4a00b9de22f10db94ade7f1e14150d6431a38679"
+  dependencies:
+    prop-types "^15.6.1"
 
 react-native-transformable-image@shoutem/react-native-transformable-image#v0.0.20:
   version "0.0.20"
