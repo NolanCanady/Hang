@@ -3,8 +3,7 @@ import {Container, Content, Text, Button, Form, Input, Item, Icon} from 'native-
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {AppRegistry, View, Image, ImageBackground, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
 import {inject} from 'mobx-react';
-import buttonStyles from '../styles/button.styles';
-//import BackNav from '../components/hangbutton.component';
+import hangStyles from '../styles/hang.styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -54,7 +53,7 @@ export default class PhoneNumberScreen extends Component{
   }
 
   render(){
-    const{stores, navigation, age} = this.props
+    const{stores, navigation} = this.props
     return(
       <View style={{flex: 1}}>
         <MapView
@@ -75,17 +74,17 @@ export default class PhoneNumberScreen extends Component{
           </Button>
         </Form>
         //First Name Input
-        <View style={buttonStyles.loginForeground}>
+        <View style={hangStyles.loginForeground}>
           <Form style={{marginTop:16}}>
-            <Text style={buttonStyles.title2Text}>What''s your phone number?</Text>
+            <Text style={hangStyles.title2Text}>What''s your phone number?</Text>
             <Item>
-              <Input style={buttonStyles.title1TextInput} keyboardType={'numeric'} placeholder='Phone Number' autoCapitalize='none' placeholderTextColor="#fff" onChangeText={(phoneNumber) => this.phoneNumber = phoneNumber, (Value) => this.setState({editedText:false})}/>
+              <Input style={hangStyles.title1TextInput} keyboardType={'numeric'} placeholder='Phone Number' autoCapitalize='none' placeholderTextColor="#fff" onChangeText={(phoneNumber) => this.phoneNumber = phoneNumber, (Value) => this.setState({editedText:false})}/>
             </Item>
           </Form>
         </View>
           <KeyboardAvoidingView style={{bottom:32}} behavior="padding">
-              <Button disabled={this.state.editedText} rounded block style={this.state.editedText ? buttonStyles.standardButtonDisabled : buttonStyles.standardButton} onPress={() => navigation.navigate('MapTest', { age: '21', firstName: this.firstname, lastName:this.lastName, gender:this.gender, phoneNumber:this.phoneNumber })}>
-                <Text style={buttonStyles.buttonTitle2Text}>Next</Text>
+              <Button disabled={this.state.editedText} rounded block style={this.state.editedText ? hangStyles.standardButtonDisabled : hangStyles.standardButton} onPress={() => navigation.navigate('MapTest', { age: '21', firstName: this.firstname, lastName:this.lastName, gender:this.gender, phoneNumber:this.phoneNumber })}>
+                <Text style={hangStyles.buttonTitle2Text}>Next</Text>
               </Button>
           </KeyboardAvoidingView>
       </Container>

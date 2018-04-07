@@ -4,10 +4,12 @@ import {AppRegistry, View, Image, ImageBackground, FlatList, SectionList, Switch
 //For simple table view - may delete
 import {Cell, Section,TableView} from 'react-native-tableview-simple';
 import {inject} from 'mobx-react';
-import buttonStyles from '../styles/button.styles';
+import hangStyles from '../styles/hang.styles';
 import BackNav from '../components/hangbutton.component';
 import AvailabilityToggle from '../components/availabilityToggle.component';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+//import ListView from '../components/friendsList.component';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -21,10 +23,11 @@ const styles = StyleSheet.create({
 @inject("stores")
 export default class HomeScreen extends Component{
   constructor(props){
-    super(props)
+    super(props);
     this.state={
       editedText: true
-    }
+    };
+
   }
 
   state={
@@ -58,7 +61,7 @@ export default class HomeScreen extends Component{
   }
 
   render(){
-    const{stores, navigation, age} = this.props
+    const{stores, navigation} = this.props
     return(
       <View style={{flex: 1}}>
 
@@ -76,28 +79,28 @@ export default class HomeScreen extends Component{
 
           //Logo
           <View style={{flex:.3, marginTop: 35}}>
-            <Image style={availabilityListStyles.logo} source={stores.config.logo}/>
+            <Image style={hangStyles.logo} source={stores.config.logo}/>
           </View>
 
           //List options
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-            <Button rounded block style={availabilityListStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
-                <Text style={availabilityListStyles.listOptions}>Friends</Text>
+            <Button rounded block style={hangStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
+                <Text style={hangStyles.listOptions}>Friends</Text>
             </Button>
-            <Button rounded block style={availabilityListStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
-                <Text style={availabilityListStyles.listOptions}>Nearby</Text>
+            <Button rounded block style={hangStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
+                <Text style={hangStyles.listOptions}>Nearby</Text>
             </Button>
           </View>
 
           //Friends list
           <View style={{flex:5}}>
-            <SectionList style={availabilityListStyles.list}
+            <SectionList style={hangStyles.list}
               sections={[
                 {title: 'Available', data: ['Andrew Sibert']},
                 {title: 'Unavailable', data: ['Joe Kennedy', 'Nolan Canady', 'Anja']},
               ]}
-              renderItem={({item}) => <Text style={availabilityListStyles.itemText}>{item}</Text>}
-              renderSectionHeader={({section}) => <Text style={availabilityListStyles.sectionHeader}>{section.title}</Text>}
+              renderItem={({item}) => <Text style={hangStyles.itemText}>{item}</Text>}
+              renderSectionHeader={({section}) => <Text style={hangStyles.sectionHeader}>{section.title}</Text>}
               keyExtractor={(item, index) => index}>
             </SectionList>
           </View>
@@ -109,49 +112,13 @@ export default class HomeScreen extends Component{
               style={{marginBottom: 10}}
               value={this.state.SwitchOnValueHolder} />
           </View>
+
+
         </Container>
       </View>
     )
   }
 }
-
-//page styles
-const availabilityListStyles = StyleSheet.create({
-  logo:{
-    flex: 1,
-    alignSelf: 'stretch',
-    resizeMode: 'contain',
-    width: undefined,
-    height: undefined,
-  },
-  listOptions: {
-    fontFamily: "Nunito-ExtraBold",
-    fontSize: 18,
-    paddingTop: 10,
-    color: '#ffffff'
-  },
-  listOptionsBG: {
-    margin: 10,
-    backgroundColor: 'rgba(0,0,0,.0)'
-  },
-  itemText: {
-    fontFamily: "Nunito-ExtraBold",
-    color: '#000000',
-    backgroundColor: '#ffffff',
-    padding: 10,
-    marginLeft: 25,
-    marginRight: 25,
-    flex: 1,
-    borderRadius: 20
-  },
-  sectionHeader:{
-    fontFamily: "Nunito-ExtraBold",
-    padding: 10,
-    marginLeft: 25,
-    marginRight: 25,
-    color: '#ffffff',
-  },
-})
 
 
 AppRegistry.registerComponent('Hang', () => Hang);

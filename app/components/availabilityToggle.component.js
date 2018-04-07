@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Switch, Alert} from 'react-native';
 import { inject } from 'mobx-react';
+import hangStyles from '../styles/hang.styles';
 
 @inject("stores")
 class AvailabilityToggle extends Component {
@@ -29,7 +30,7 @@ ShowAlert = (value) =>{
 
  render() {
    return (
-     <View style={styles.MainContainer}>
+     <View style={hangStyles.availabilityToggle}>
        <Text style={{fontSize: 18, color: '#ffffff', fontFamily: "Nunito-ExtraBold",}}> Hang? </Text>
         <Switch
           onValueChange={(value) => this.ShowAlert(value)}
@@ -39,16 +40,6 @@ ShowAlert = (value) =>{
    );
  }
 }
-
-const styles = StyleSheet.create({
-  MainContainer :{
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex:1,
-    margin: 10
-}
-
-});
 
 export default AvailabilityToggle
 

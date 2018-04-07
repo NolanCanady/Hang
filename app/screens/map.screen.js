@@ -3,7 +3,7 @@ import {Container, Content, Text, Button, Form, Input, Item, Icon} from 'native-
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {AppRegistry, View, Image, ImageBackground, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
 import {inject} from 'mobx-react';
-import buttonStyles from '../styles/button.styles';
+import hangStyles from '../styles/hang.styles';
 
 
 const styles = StyleSheet.create({
@@ -79,7 +79,7 @@ export default class MapScreen extends Component{
    }
 
   render(){
-    const{stores, navigation, age, firstName} = this.props
+    const{stores, navigation, firstName} = this.props
     return(
       <View style={{flex: 1}}>
         <MapView
