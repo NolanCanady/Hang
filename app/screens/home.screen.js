@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import {Container, Content, Text, Button, Form, Input, Item, Icon} from 'native-base';
+<<<<<<< HEAD
 import {AppRegistry, View, Image, ImageBackground, ScrollView, Alert, StatusBar, FlatList, SectionList, Switch, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
+=======
+import {AppRegistry, View, Image, ImageBackground, FlatList, SectionList, Switch, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
+
+//For simple table view - may delete
+import {Cell, Section,TableView} from 'react-native-tableview-simple';
+
+>>>>>>> 4449d8f7d359291ee8d38c306f331b41d9842607
 import {inject} from 'mobx-react';
-import buttonStyles from '../styles/button.styles';
+import hangStyles from '../styles/hang.styles';
 import BackNav from '../components/hangbutton.component';
 import AvailabilityToggle from '../components/availabilityToggle.component';
 import HomeNav from '../components/homeNav.component';
@@ -23,15 +31,19 @@ const styles = StyleSheet.create({
 @inject("stores")
 export default class HomeScreen extends Component{
   constructor(props){
-    super(props)
+    super(props);
     this.state={
       isOpen: false,
       isDisabled: false,
       swipeToClose: true,
       editedText: true
+<<<<<<< HEAD
 
     }
 
+=======
+    };
+>>>>>>> 4449d8f7d359291ee8d38c306f331b41d9842607
   }
 
   state={
@@ -72,7 +84,7 @@ export default class HomeScreen extends Component{
 }
 
   render(){
-    const{stores, navigation, age} = this.props
+    const{stores, navigation} = this.props
     return(
       <View style={{flex: 1}}>
       <StatusBar
@@ -96,27 +108,33 @@ export default class HomeScreen extends Component{
         <Container style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
 
           //Logo
+<<<<<<< HEAD
           <HomeNav/>
+=======
+          <View style={{flex:.3, marginTop: 35}}>
+            <Image style={hangStyles.logo} source={stores.config.logo}/>
+          </View>
+>>>>>>> 4449d8f7d359291ee8d38c306f331b41d9842607
 
           //List options
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-            <Button rounded block style={availabilityListStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
-                <Text style={availabilityListStyles.listOptions}>Friends</Text>
+            <Button rounded block style={hangStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
+                <Text style={hangStyles.listOptions}>Friends</Text>
             </Button>
-            <Button rounded block style={availabilityListStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
-                <Text style={availabilityListStyles.listOptions}>Nearby</Text>
+            <Button rounded block style={hangStyles.listOptionsBG} onPress={() => navigation.navigate('HomeScreen')}>
+                <Text style={hangStyles.listOptions}>Nearby</Text>
             </Button>
           </View>
 
           //Friends list
           <View style={{flex:5}}>
-            <SectionList style={availabilityListStyles.list}
+            <SectionList style={hangStyles.list}
               sections={[
                 {title: 'Available', data: ['Andrew Sibert']},
                 {title: 'Unavailable', data: ['Joe Kennedy', 'Nolan Canady', 'Anja']},
               ]}
-              renderItem={({item}) => <Text style={availabilityListStyles.itemText}>{item}</Text>}
-              renderSectionHeader={({section}) => <Text style={availabilityListStyles.sectionHeader}>{section.title}</Text>}
+              renderItem={({item}) => <Text style={hangStyles.itemText}>{item}</Text>}
+              renderSectionHeader={({section}) => <Text style={hangStyles.sectionHeader}>{section.title}</Text>}
               keyExtractor={(item, index) => index}>
             </SectionList>
           </View>
@@ -128,12 +146,15 @@ export default class HomeScreen extends Component{
               style={{marginBottom: 10}}
               value={this.state.SwitchOnValueHolder} />
           </View>
+
+
         </Container>
       </View>
     )
   }
 }
 
+<<<<<<< HEAD
 //page styles
 const availabilityListStyles = StyleSheet.create({
   logo:{
@@ -182,6 +203,7 @@ const availabilityListStyles = StyleSheet.create({
     width: 300
   },
 })
+=======
+>>>>>>> 4449d8f7d359291ee8d38c306f331b41d9842607
 
-// skip this line if using Create React Native App
 AppRegistry.registerComponent('Hang', () => Hang);

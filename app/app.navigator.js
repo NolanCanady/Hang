@@ -1,7 +1,7 @@
 import React from 'react';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
 import SplashScreen from './screens/splash.screen';
-import AgeScreen from './screens/loginsignup.screen';
+import LoginSignupScreen from './screens/loginsignup.screen';
 import FirstNameScreen from './screens/firstname.screen';
 import LastNameScreen from './screens/lastname.screen';
 import GenderScreen from './screens/gender.screen';
@@ -17,8 +17,8 @@ const Splash={
   }
 }
 
-const Age={
-  screen: AgeScreen,
+const LoginSignup={
+  screen: LoginSignupScreen,
   navigationOptions: {
     header: null
   }
@@ -59,7 +59,7 @@ const MapTest={
   }
 }
 
-const HomeTest={
+const Home={
   screen: HomeScreen,
   navigationOptions:{
     header:null
@@ -78,19 +78,19 @@ const RouteConfig = {
 }
 
 const SignupStack = StackNavigator({
-  Age: Age,
+  LoginSignup: LoginSignup,
   FirstName: FirstName,
   LastName: LastName,
   Gender: Gender,
   PhoneNumber: PhoneNumber,
   MapTest: MapTest,
-  HomeScreen: HomeTest,
+  Home: Home,
   TestTest: TestTest
 },{})
 
 const AppNavigator = DrawerNavigator({
   Splash: Splash,
-  Home: HomeTest,
+  Home: Home,
   SignUp: {screen: SignupStack}
 }, RouteConfig)
 
