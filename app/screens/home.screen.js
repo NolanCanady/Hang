@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {Container, Content, Text, Button, Form, Input, Item, Icon} from 'native-base';
-import {AppRegistry, View, Image, ImageBackground, FlatList, SectionList, Switch, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
+import {AppRegistry, View, Image, ImageBackground, ScrollView, Alert, StatusBar, FlatList, SectionList, Switch, StyleSheet, Dimensions, KeyboardAvoidingView} from 'react-native';
 import {inject} from 'mobx-react';
 import buttonStyles from '../styles/button.styles';
 import BackNav from '../components/hangbutton.component';
 import AvailabilityToggle from '../components/availabilityToggle.component';
+import HomeNav from '../components/homeNav.component';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import Modal from 'react-native-modalbox';
+var screen = Dimensions.get('window');
+
 
 const styles = StyleSheet.create({
   container: {
@@ -21,8 +25,13 @@ export default class HomeScreen extends Component{
   constructor(props){
     super(props)
     this.state={
+      isOpen: false,
+      isDisabled: false,
+      swipeToClose: true,
       editedText: true
+
     }
+
   }
 
   state={
@@ -30,6 +39,8 @@ export default class HomeScreen extends Component{
     lastLat: null,
     lastLong: null,
   }
+
+
 
   componentDidMount(){
     this.watchID = navigator.geolocation.watchPosition((position)=>{
@@ -55,11 +66,23 @@ export default class HomeScreen extends Component{
     })
   }
 
+  static settingsWindow(id) {
+  this.refs.modal.open();
+
+}
+
   render(){
     const{stores, navigation, age} = this.props
     return(
       <View style={{flex: 1}}>
-
+      <StatusBar
+          backgroundColor="blue"
+          barStyle="light-content"
+        />
+        <Modal style={styles.modal3} position={"center"} ref={(modal) => this.settingsWindow = modal} isDisabled={this.state.isDisabled}>
+            <Image source={stores.config.swipeicon}/>
+            <Text style={styles.text}>Notifications</Text>
+          </Modal>
         //Map background
         <MapView
           style={styles.map}
@@ -73,9 +96,7 @@ export default class HomeScreen extends Component{
         <Container style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
 
           //Logo
-          <View style={{flex:.3, marginTop: 35}}>
-            <Image style={availabilityListStyles.logo} source={stores.config.logo}/>
-          </View>
+          <HomeNav/>
 
           //List options
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
@@ -124,8 +145,8 @@ const availabilityListStyles = StyleSheet.create({
   },
   listOptions: {
     fontFamily: "Nunito-ExtraBold",
-    fontSize: 18,
-    paddingTop: 10,
+    fontSize: 26,
+    paddingTop: 18,
     color: '#ffffff'
   },
   listOptionsBG: {
@@ -148,6 +169,17 @@ const availabilityListStyles = StyleSheet.create({
     marginLeft: 25,
     marginRight: 25,
     color: '#ffffff',
+  },
+
+  modal3: {
+    flex:1,
+    position: 'absolute',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderRadius: 16,
+    paddingTop: 16,
+    height: 300,
+    width: 300
   },
 })
 

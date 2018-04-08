@@ -17,6 +17,9 @@ export default class ConfigStore{
         this.splashTime = 1000
         this.splashImg = require('../../images/logo.png')
         this.logo = require('../../images/logoLarge.png')
+        this.addicon = require('../../images/Add.png')
+        this.settingsicon = require('../../images/settings.png')
+        this.swipeicon = require('../../images/swipechevron.png')
         this.mapBG = require('../../images/mapBG.png')
         this.boySymbol = require('../../images/boy.png')
         this.girlSymbol = require('../../images/girl.png')
@@ -42,6 +45,18 @@ export default class ConfigStore{
 
     get LogoImage(){
       return this.logo
+    }
+
+    get addIcon(){
+      return this.addicon
+    }
+
+    get swipeIcon(){
+      return this.swipeicon
+    }
+
+    get settingsIcon(){
+      return this.settingsicon
     }
 
     get SplashImg(){
