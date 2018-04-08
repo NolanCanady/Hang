@@ -1,35 +1,14 @@
+/*import React, {Component} from 'react';
+import { AppRegistry, View, Text, StyleSheet, Image } from 'react-native';
+import hangStyles from '../styles/hang.styles';
 
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  text: {
-    marginLeft: 12,
-    fontSize: 16,
-  },
-  photo: {
-    height: 40,
-    width: 40,
-    borderRadius: 20,
-  },
-});
-
-@inject("stores")
-const Row = (props) => (
-  <View style={styles.container}>
-    <Image source={{ uri: props.picture.large}} style={styles.photo} />
+const FriendsListRow = (props) => (
+  <View style={hangStyles.container}>
+    <Image style={hangStyles.logo} source={stores.config.logo}/>
     <Text style={styles.text}>
-      {`${props.name.first} ${props.name.last}`}
+      {`${props.item}`}
     </Text>
   </View>
 );
 
-export default Row;
-
-AppRegistry.registerComponent('Hang', () => Hang);
+export default FriendsListRow;*/

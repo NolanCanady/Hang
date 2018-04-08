@@ -1,35 +1,29 @@
-import React from 'react';
-import { View, ListView, StyleSheet, Text } from 'react-native';
+/*import React, {Component} from 'react';
+import { View, SectionList, StyleSheet, Text } from 'react-native';
 import {inject} from 'mobx-react';
-import Row from './friendsListRow.component';
+import hangStyles from '../styles/hang.styles';
+import FriendsListRow from './friendsListRow.component';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20,
-  },
-});
-
-class ListViewDemo extends React.Component {
+@inject("stores")
+class FriendsListView extends React.Component {
   constructor(props) {
     super(props);
-
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
-    };
   }
+
   render() {
+    const{stores, navigation} = this.props
     return (
-      <ListView
-        style={styles.container}
-        dataSource={this.state.dataSource}
-        renderRow={(data) => <friendsListRow {...data}/>}
-      />
-    );
+      <SectionList style={hangStyles.list}
+        sections={[
+          {title: 'Available', data: ['Andrew Sibert']},
+          {title: 'Unavailable', data: ['Joe Kennedy', 'Nolan Canady', 'Anja']},
+        ]}
+        renderItem={({item}) => <FriendsListRow>{item}</FriendsListRow>}
+        renderSectionHeader={({section}) => <Text style={hangStyles.sectionHeader}>{section.title}</Text>}
+        keyExtractor={(item, index) => index}>
+      </SectionList>
+    )
   }
 }
 
-export default ListViewDemo;
-
-AppRegistry.registerComponent('Hang', () => Hang);
+export default FriendsListView;*/
