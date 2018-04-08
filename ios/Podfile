@@ -4,4 +4,8 @@ pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga/Yoga.podspec
 pod 'GoogleMaps'
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
 end

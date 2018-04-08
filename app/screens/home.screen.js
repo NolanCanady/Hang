@@ -112,7 +112,6 @@ export default class HomeScreen extends Component{
               value={this.state.SwitchOnValueHolder} />
           </View>
 
-
         </Container>
       </View>
     )
