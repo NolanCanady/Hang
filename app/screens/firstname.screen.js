@@ -68,14 +68,13 @@ export default class FirstNameScreen extends Component{
         </MapView>
         <Container style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
 
-        <BackNav/>
-
-        /*Back button
+        Back button
         <Form style={{marginTop:27}}>
           <Button style={{backgroundColor: 'rgba(52, 52, 52, 0)'}} onPress={() => navigation.goBack()}>
             <Icon style={{color:"#fff"}} name='person-outline'/>
           </Button>
-        </Form>*/
+        </Form>
+        
         //First Name Input
         <View style={hangStyles.loginForeground}>
           <Form style={{marginTop:16}}>
