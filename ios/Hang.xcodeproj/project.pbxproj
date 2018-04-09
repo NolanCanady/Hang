@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -386,7 +387,11 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+<<<<<<< HEAD
 		C1DC35E22078212F0016E9B8 /* PBXContainerItemProxy */ = {
+=======
+		E43BC2F620781B9500E45B6F /* PBXContainerItemProxy */ = {
+>>>>>>> origin/master
 			isa = PBXContainerItemProxy;
 			containerPortal = E77EE28255734B9486D6F8FE /* RNPhotoView.xcodeproj */;
 			proxyType = 2;
@@ -911,6 +916,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E43BC2F320781B9500E45B6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E43BC2F720781B9500E45B6F /* libRNPhotoView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1086,7 +1099,11 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
 					ProductGroup = C1DC35DF2078212F0016E9B8 /* Products */;
+=======
+					ProductGroup = E43BC2F320781B9500E45B6F /* Products */;
+>>>>>>> origin/master
 					ProjectRef = E77EE28255734B9486D6F8FE /* RNPhotoView.xcodeproj */;
 				},
 				{
@@ -1378,11 +1395,19 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+<<<<<<< HEAD
 		C1DC35E32078212F0016E9B8 /* libRNPhotoView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNPhotoView.a;
 			remoteRef = C1DC35E22078212F0016E9B8 /* PBXContainerItemProxy */;
+=======
+		E43BC2F720781B9500E45B6F /* libRNPhotoView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNPhotoView.a;
+			remoteRef = E43BC2F620781B9500E45B6F /* PBXContainerItemProxy */;
+>>>>>>> origin/master
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
